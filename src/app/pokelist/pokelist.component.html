@@ -1,0 +1,7 @@
+<h3>List of Pokemon</h3>
+<ul>
+  <div *ngFor='let poke of poke$'>
+    <li><a routerLink='/pokedetails'>{{poke.name}}</a></li>
+    <img *ngIf='pokeImg' [src]="pokeImg.front_default">
+  </div>
+</ul>
