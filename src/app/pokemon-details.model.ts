@@ -1,6 +1,7 @@
 export class Details{
     id: number;
     sprites: Sprites;
+    types: Types[];
 }
 
 export class Sprites{
@@ -12,4 +13,14 @@ export class Sprites{
     front_female: string;
     front_shiny: string;
     front_shiny_female: string;
+}
+
+export class Types{
+    slot: number;
+    type: Type;
+}
+
+export class Type{
+    name: string;
+    url: string;
 }

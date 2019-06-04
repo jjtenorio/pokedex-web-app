@@ -1,3 +1,8 @@
- <!-- <div *ngIf='pokeImg'>
- <img [src]='pokeImg.front_default'>
-</div> -->
+<div *ngIf='pokeImg' class="pokemon">
+    <img [src]='pokeImg.front_default'>
+    <ul>
+    <div *ngFor='let types of pokeType' class="type">
+        <li *ngIf='pokeType'>{{types.type.name}}</li>
+    </div>
+</ul>
+</div>

@@ -12,7 +12,7 @@ import { DataService } from './data.service';
   declarations: [
     AppComponent,
     PokelistComponent,
-    PokedetailsComponent
+    PokedetailsComponent,
   ],
   imports: [
     BrowserModule,
