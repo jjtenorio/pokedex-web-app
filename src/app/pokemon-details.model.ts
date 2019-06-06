@@ -1,7 +1,21 @@
 export class Details{
-    id: number;
+    abilities: Abilities[];
     sprites: Sprites;
+    stats: Stats[];
     types: Types[];
+    height: number;
+    weight: number;
+}
+
+export class Abilities{
+    ability: Ability;
+    is_hidden: boolean;
+    slot: number;
+}
+
+export class Ability{
+    name: string;
+    url: string;
 }
 
 export class Sprites{
@@ -13,6 +27,17 @@ export class Sprites{
     front_female: string;
     front_shiny: string;
     front_shiny_female: string;
+}
+
+export class Stats{
+    base_stat: number;
+    effort: number;
+    stat: Stat;
+}
+
+export class Stat{
+    name: string;
+    url: string;
 }
 
 export class Types{

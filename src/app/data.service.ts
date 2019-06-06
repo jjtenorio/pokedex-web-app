@@ -8,19 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
+pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=00&limit=30'
 pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   constructor(private http:HttpClient) { }
 
-  getPokemon(){
-    return this.http.get<Pokemon>(this.pokeUrl);
+  getPokemon():Observable<Pokemon>{
+    return this.http.get<Pokemon>(this.pokeUrlshow);
   }
 
-  getPokeImg(name: string){
-    return this.http.get<Details>(this.pokeUrl+name);
-  }
-
-  getPokeType(name: string){
+  getPokeInfo(name: string):Observable<Details>{
     return this.http.get<Details>(this.pokeUrl+name);
   }
 }

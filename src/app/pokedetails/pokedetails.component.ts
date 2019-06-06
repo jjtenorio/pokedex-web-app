@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Sprites, Stats, Types, Abilities } from '../pokemon-details.model';
 import { DataService } from '../data.service';
-import { Details, Sprites, Types } from '../pokemon-details.model';
-import { Pokemon, Results } from '../pokemon.model';
-import { Source } from 'webpack-sources';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pokedetails',
@@ -10,26 +9,55 @@ import { Source } from 'webpack-sources';
   styleUrls: ['./pokedetails.component.css']
 })
 export class PokedetailsComponent implements OnInit {
+  pokename: string;
+  pokeAbi: Abilities[];
   pokeImg: Sprites;
+  pokeStat: Stats[];
   pokeType: Types[];
-  @Input('pokename') pokename: string;
+  pokeHeight: number;
+  pokeWeight: number;
+  order: string;
 
-
-  constructor(private data: DataService) { }
+  constructor(
+    private data: DataService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.pokename = this.route.snapshot.paramMap.get('name');
+
     if(this.pokename){
-      this.data.getPokeImg(this.pokename)
+      this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
         this.pokeImg = data.sprites
       });
 
-      this.data.getPokeType(this.pokename)
+      this.data.getPokeInfo(this.pokename)
+      .subscribe(data => {
+        this.pokeAbi = data.abilities
+      })
+
+      this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
         this.pokeType = data.types
       });
+
+      this.data.getPokeInfo(this.pokename)
+      .subscribe(data => {
+        this.pokeStat = data.stats.sort((a, b) => (a.stat.name > a.stat.name)? 1: -1);
+      });
+
+      this.data.getPokeInfo(this.pokename)
+      .subscribe(data => {
+        this.pokeHeight = data.height
+      })
+
+      this.data.getPokeInfo(this.pokename)
+      .subscribe(data => {
+        this.pokeWeight = data.weight
+      })
     }
+    
+
   }
 
-    
 }

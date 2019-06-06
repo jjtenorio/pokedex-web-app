@@ -1,10 +1,58 @@
-div.pokemon {
-    width: 50px;
-    margin: 10px;
-    padding: 5px 3px;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+h3 {
+    text-transform: capitalize;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-div.type {
-    padding: 2px;
+ul {
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
+ul.type{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.types {
+    float: left;
+    margin: 2px;
+}
+
+li {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.poison{
+    color: white;
+    background-color: purple;
+}
+
+.grass{
+    color: white;
+    background-color: green;
+}
+
+.fire{
+    color: white;
+    background-color: orangered;
+}
+
+.flying{
+    color: white;
+    background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
+}
+
+ul.ab {
+    margin-top: 50px;
+    padding: 0;
+}
+
+ul.stats {
+    padding: 0;
+}

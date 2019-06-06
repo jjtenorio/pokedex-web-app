@@ -1,9 +1,9 @@
 <h3>List of Pokemon</h3>
 <ul *ngIf='poke$' class="table">
   <div *ngFor='let poke of poke$' class="container">
-    <a routerLink='/pokedetails'>
+    <a [routerLink]="['/pokedetails',poke.name]">
     <li>{{poke.name}}</li>
-    <app-pokedetails [pokename]='poke.name' class="pokedetails"></app-pokedetails>
+    <app-pokedisplay [pokename]='poke.name' class="pokedetails"></app-pokedisplay>
     </a>
   </div>
 </ul>
