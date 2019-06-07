@@ -1,4 +1,7 @@
-<h3>List of Pokemon</h3>
+<h3>List of Pokemon</h3> 
+
+<a [routerLink]=""><button>Next Page</button></a>
+
 <ul *ngIf='poke$' class="table">
   <div *ngFor='let poke of poke$' class="container">
     <a [routerLink]="['/pokedetails',poke.name]">

@@ -8,3 +8,6 @@ div.type {
     padding: 2px;
 }
 
+.nullimg {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png');
+}

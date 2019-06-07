@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { Details, Sprites, Types } from '../pokemon-details.model';
-import { Pokemon, Results } from '../pokemon.model';
-import { Source } from 'webpack-sources';
+import { ItemSprites } from '../pokeitem.model';
 
 @Component({
   selector: 'app-pokedisplay',
@@ -12,6 +11,7 @@ import { Source } from 'webpack-sources';
 export class PokedisplayComponent implements OnInit {
   pokeImg: Sprites;
   pokeType: Types[];
+  itemImg: ItemSprites;
   @Input('pokename') pokename: string;
 
 
@@ -21,6 +21,7 @@ export class PokedisplayComponent implements OnInit {
     if(this.pokename){
       this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
+        console.log(data.sprites.front_default)
         this.pokeImg = data.sprites
       });
 
@@ -28,6 +29,12 @@ export class PokedisplayComponent implements OnInit {
       .subscribe(data => {
         this.pokeType = data.types
       });
+
+      this.data.getPokeItemImage()
+      .subscribe(data => {
+      this.itemImg = data.sprites
+      });
+      
     }
   }
 
