@@ -8,6 +8,8 @@ import { PokelistComponent } from './pokelist/pokelist.component';
 import { PokedisplayComponent } from './pokedisplay/pokedisplay.component';
 import { DataService } from './data.service';
 import { PokedetailsComponent } from './pokedetails/pokedetails.component';
+import { PokeEvolutionComponent } from './poke-evolution/poke-evolution.component';
+import { PokeEvoDisplayComponent } from './poke-evo-display/poke-evo-display.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { PokedetailsComponent } from './pokedetails/pokedetails.component';
     PokelistComponent,
     PokedisplayComponent,
     PokedetailsComponent,
+    PokeEvolutionComponent,
+    PokeEvoDisplayComponent,
   ],
   imports: [
     BrowserModule,

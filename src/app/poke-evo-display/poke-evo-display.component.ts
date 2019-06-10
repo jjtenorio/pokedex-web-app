@@ -1,16 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { Details, Sprites, Types } from '../pokemon-details.model';
+import { Sprites, Types } from '../pokemon-details.model';
 import { ItemSprites } from '../pokeitem.model';
 
 @Component({
-  selector: 'app-pokedisplay',
-  templateUrl: './pokedisplay.component.html',
-  styleUrls: ['./pokedisplay.component.css']
+  selector: 'app-poke-evo-display',
+  templateUrl: './poke-evo-display.component.html',
+  styleUrls: ['./poke-evo-display.component.css']
 })
-export class PokedisplayComponent implements OnInit {
+export class PokeEvoDisplayComponent implements OnInit {
   pokeImg: Sprites;
-  pokeType: Types[];
   itemImg: ItemSprites;
   @Input('pokename') pokename: string;
 
@@ -23,12 +22,7 @@ export class PokedisplayComponent implements OnInit {
       .subscribe(data => {
         this.pokeImg = data.sprites
       });
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokeType = data.types
-      });
-
+      
       this.data.getPokeItemImage()
       .subscribe(data => {
       this.itemImg = data.sprites
@@ -37,5 +31,4 @@ export class PokedisplayComponent implements OnInit {
     }
   }
 
-    
 }

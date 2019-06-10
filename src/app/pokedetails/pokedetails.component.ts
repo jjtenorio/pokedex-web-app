@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Sprites, Stats, Types, Abilities } from '../pokemon-details.model';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { Evolution, Evolution_Details } from '../pokeevolution.model';
 
 @Component({
   selector: 'app-pokedetails',
@@ -14,6 +15,7 @@ export class PokedetailsComponent implements OnInit {
   pokeImg: Sprites;
   pokeStat: Stats[];
   pokeType: Types[];
+  pokeChain: Evolution;
   pokeHeight: number;
   pokeWeight: number;
   order: string;
@@ -54,6 +56,12 @@ export class PokedetailsComponent implements OnInit {
       this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
         this.pokeWeight = data.weight
+      })
+
+      this.data.getPokeSpecie(this.pokename)
+      .subscribe(data => {
+      this.pokeChain = data.evolution_chain
+      // this.pokeChain = data.evolution_chain.url.substring(42,43)
       })
     }
     

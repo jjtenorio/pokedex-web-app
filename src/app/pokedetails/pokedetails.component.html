@@ -38,5 +38,8 @@
     <li *ngIf='pokeStat'>{{stats.stat.name}} - {{stats.base_stat}}</li>
 </div>
 </ul>
+<app-poke-evolution *ngIf='pokeChain' 
+[evochain]='pokeChain.url'
+[pokename]='pokename'></app-poke-evolution>
 
 <a routerLink=''><button>Go Back</button></a>

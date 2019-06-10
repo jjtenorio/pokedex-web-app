@@ -1,4 +1,4 @@
-<div *ngIf='pokeImg' class="pokemon">
+<div *ngIf='pokeImg'>
     <div *ngIf='pokeImg.front_default'>
         <img [src]='pokeImg.front_default'>
     </div>
@@ -7,9 +7,4 @@
             <img [src]='itemImg.default'>
         </div>
     </div>
-    <ul>
-    <div *ngFor='let types of pokeType' class="type">
-        <li *ngIf='pokeType'>{{types.type.name}}</li>
-    </div>
-    </ul>
 </div>
