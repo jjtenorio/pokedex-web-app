@@ -29,22 +29,18 @@ p {
 }
 
 .poison{
-    color: white;
     background-color: purple;
 }
 
 .grass{
-    color: white;
     background-color: green;
 }
 
 .fire{
-    color: white;
     background-color: orangered;
 }
 
 .flying{
-    color: white;
     background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
 }
 

@@ -1,12 +1,15 @@
 <h3>List of Pokemon</h3> 
 
-<a [routerLink]=""><button>Next Page</button></a>
+<app-pager></app-pager>
 
 <ul *ngIf='poke$' class="table">
   <div *ngFor='let poke of poke$' class="container">
-    <a [routerLink]="['/pokedetails',poke.name]">
-    <li>{{poke.name}}</li>
+    <div *ngIf='poke.name'>
+    <a [routerLink]="['/',poke.name]">
+    <li class="pokename">{{poke.name}}</li>
     <app-pokedisplay [pokename]='poke.name' class="pokedetails"></app-pokedisplay>
     </a>
+    </div>
   </div>
 </ul>
+

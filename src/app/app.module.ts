@@ -10,6 +10,7 @@ import { DataService } from './data.service';
 import { PokedetailsComponent } from './pokedetails/pokedetails.component';
 import { PokeEvolutionComponent } from './poke-evolution/poke-evolution.component';
 import { PokeEvoDisplayComponent } from './poke-evo-display/poke-evo-display.component';
+import { PagerComponent } from './pager/pager.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PokeEvoDisplayComponent } from './poke-evo-display/poke-evo-display.com
     PokedetailsComponent,
     PokeEvolutionComponent,
     PokeEvoDisplayComponent,
+    PagerComponent,
   ],
   imports: [
     BrowserModule,

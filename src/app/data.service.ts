@@ -10,18 +10,21 @@ import { Evolution_Details, Evolution_Chain } from './pokeevolution.model';
   providedIn: 'root'
 })
 export class DataService {
-pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=00&limit=';
+pokeNextUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=';
+pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=00&limit=20';
 pokeItemUrl = 'https://pokeapi.co/api/v2/item/1';
 pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 pokeSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
 pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient
+    ) { }
 
   getPokemon():Observable<Pokemon>{
-    return this.http.get<Pokemon>(this.pokeUrlshow+'100');
+    return this.http.get<Pokemon>(this.pokeUrlshow);
   }
-
+  
   getPokeInfo(name: string):Observable<Details>{
     return this.http.get<Details>(this.pokeUrl+name);
   }
@@ -35,10 +38,6 @@ pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
   }
 
   getPokeEvo(chain: string):Observable<Evolution_Chain>{
-    return this.http.get<Evolution_Chain>(this.pokeChainUrl+chain);
-  }
-
-  getPokeEvoo(chain: string):Observable<Evolution_Chain>{
     return this.http.get<Evolution_Chain>(this.pokeChainUrl+chain);
   }
 }

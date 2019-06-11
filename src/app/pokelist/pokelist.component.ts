@@ -21,5 +21,4 @@ export class PokelistComponent implements OnInit {
       this.poke$ = data.results
     });
   }
-
 }

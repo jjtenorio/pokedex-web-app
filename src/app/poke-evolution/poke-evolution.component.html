@@ -1,25 +1,21 @@
 <div *ngIf='pokeEvo' 
       [ngClass]="{'highlight': pokeEvo.species.name===pokename}">
   {{pokeEvo.species.name}}
-  <a [routerLink]="['/pokedetails',pokeEvo.species.name]">
+  <a [href]="'/' + pokeEvo.species.name">
   <app-poke-evo-display [pokename]='pokeEvo.species.name' class="pokedetails"></app-poke-evo-display>
   </a>
-  <ul>
       <div *ngFor='let chain1 of pokeEvo.evolves_to'
            [ngClass]="{'highlight': chain1.species.name===pokename}">
-          <li>{{chain1.species.name}}</li>
-          <a [routerLink]="['/pokedetails',chain1.species.name]">
+          {{chain1.species.name}}
+          <a [href]="'/' + chain1.species.name">
           <app-poke-evo-display [pokename]='chain1.species.name' class="pokedetails"></app-poke-evo-display>
           </a>
-          <ul>
               <div *ngFor="let chain2 of chain1.evolves_to"
                    [ngClass]="{'highlight': chain2.species.name===pokename}">
-                  <li>{{chain2.species.name}}</li>
-                  <a [routerLink]="['/pokedetails',chain2.species.name]">
+                  {{chain2.species.name}}
+                  <a [href]="'/' + chain2.species.name">
                   <app-poke-evo-display [pokename]='chain2.species.name' class="pokedetails"></app-poke-evo-display>
                   </a>
              </div>
-          </ul>
       </div>
-  </ul>
 </div>

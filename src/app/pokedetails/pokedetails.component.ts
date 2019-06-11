@@ -31,37 +31,16 @@ export class PokedetailsComponent implements OnInit {
       this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
         this.pokeImg = data.sprites
-      });
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
         this.pokeAbi = data.abilities
-      })
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
+        this.pokeStat = data.stats.sort((a, b) => (a.stat.name > a.stat.name)? 1: -1);
+        this.pokeHeight = data.height
+        this.pokeWeight = data.weight
         this.pokeType = data.types
       });
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokeStat = data.stats.sort((a, b) => (a.stat.name > a.stat.name)? 1: -1);
-      });
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokeHeight = data.height
-      })
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokeWeight = data.weight
-      })
 
       this.data.getPokeSpecie(this.pokename)
       .subscribe(data => {
       this.pokeChain = data.evolution_chain
-      // this.pokeChain = data.evolution_chain.url.substring(42,43)
       })
     }
     

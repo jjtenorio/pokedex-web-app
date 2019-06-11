@@ -4,10 +4,121 @@ div.pokemon {
     padding: 5px 3px;
 }
 
-div.type {
-    padding: 2px;
+div.img-container {
+    width: 210px;
+    height: 100px;
+    margin-left: -43px;
+    text-align: center;
 }
 
-.nullimg {
-    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png');
+div.type-container {
+    width: 420%;
+    margin-left: -20px;
 }
+
+ul.list-type {
+    list-style-type: none;
+    margin-top: 5px;
+    padding: 0;
+}
+
+li.type {
+    padding: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
+    width: 25%;
+    float: left; 
+    border-radius: 10%;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: bolder;
+    color: white;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+/* Pokemon Types Styles */
+#poison{
+    background-color: purple;
+}
+
+#grass{
+    background-color: green;
+}
+
+#fire{
+    background-color: orangered;
+}
+
+#flying{
+    background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
+}
+
+#water{
+    background-color:#4592C4;
+}
+
+#bug{
+    background-color:#729F3F;
+}
+
+#dragon{
+    background: -webkit-linear-gradient(bottom, #53A4CF, #53A4CF 50%, #F16E57 50%, #F16E57);
+}
+
+#fairy{
+    background-color:#FDB9E9;
+}
+
+#ghost{
+    background-color:#7B62A3;
+}
+
+#normal{
+    background-color:#A4ACAF;
+}
+
+#dark{
+    background-color:#707070;
+}
+
+#psychic{
+    background-color:#F366B9;
+}
+
+#steel{
+    background-color:#9EB7B8;
+}
+
+#electric{
+    background-color:#EED535;
+}
+
+#fighting{
+    background-color:#D56723;
+}
+
+#ice{
+    background-color:#51C4E7;
+}
+
+#rock{
+    background-color:#A38C21;
+}
+
+#ground{
+    background: -webkit-linear-gradient(bottom, #F7DE3F, #F7DE3F 50%, #AB9842 50%, #AB9842);
+}
+
+
+
+
+
+
+
+
+
+
