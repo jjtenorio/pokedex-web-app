@@ -11,7 +11,7 @@ import { Evolution_Details, Evolution_Chain } from './pokeevolution.model';
 })
 export class DataService {
 pokeNextUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=';
-pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=00&limit=20';
+pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=';
 pokeItemUrl = 'https://pokeapi.co/api/v2/item/1';
 pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 pokeSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
@@ -21,8 +21,8 @@ pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
     private http:HttpClient
     ) { }
 
-  getPokemon():Observable<Pokemon>{
-    return this.http.get<Pokemon>(this.pokeUrlshow);
+  getPokemon(offset: number):Observable<Pokemon>{
+    return this.http.get<Pokemon>(this.pokeUrlshow+offset+"&limit=60");
   }
   
   getPokeInfo(name: string):Observable<Details>{

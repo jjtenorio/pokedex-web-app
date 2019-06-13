@@ -10,7 +10,7 @@ import { DataService } from './data.service';
 import { PokedetailsComponent } from './pokedetails/pokedetails.component';
 import { PokeEvolutionComponent } from './poke-evolution/poke-evolution.component';
 import { PokeEvoDisplayComponent } from './poke-evo-display/poke-evo-display.component';
-import { PagerComponent } from './pager/pager.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +20,15 @@ import { PagerComponent } from './pager/pager.component';
     PokedetailsComponent,
     PokeEvolutionComponent,
     PokeEvoDisplayComponent,
-    PagerComponent,
+    ScrollTopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [DataService],
+  providers: [
+    DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

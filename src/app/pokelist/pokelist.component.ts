@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { Pokemon, Results } from '../pokemon.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-pokelist',
@@ -10,15 +10,36 @@ import { Router } from '@angular/router';
 })
 export class PokelistComponent implements OnInit {
   poke$: Results[];
+  pokeId: number;
+  default: boolean;
+  count: number;
+  pager:number[];
+  page: number;
+  offset: number;
 
   constructor(
     private data: DataService,
-    private router: Router) { }
+    private route: ActivatedRoute,
+    private router: Router) {
+      this.route.paramMap.subscribe(params => {
+        this.page = +params.get("id")
+      })
+
+      this.router.routeReuseStrategy.shouldReuseRoute = function() {
+        return false;
+      };
+     }
 
   ngOnInit() {
-    this.data.getPokemon()
+    this.offset = (this.page-1) * 60;
+    if(this.offset < 0) {
+      this.offset = 0
+    }
+    this.data.getPokemon(this.offset)
     .subscribe(data => {
       this.poke$ = data.results
+      this.count = Math.round(data.count/60)
+      this.pager = new Array(this.count)
     });
   }
 }

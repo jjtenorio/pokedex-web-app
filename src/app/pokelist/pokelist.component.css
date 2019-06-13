@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+/*  
+* {
+    box-sizing: border-box;
+} */
 
-ul {
+ul.table {
     list-style-type: none;
 }
 
-li{
+li.pokename{
     margin-top: -5px;
     text-align: center;
     margin-left: -30px;
@@ -30,4 +34,16 @@ div.container {
     height: 150px;
     width: 150px;
     border-radius: 3%;
+}
+
+div.pager {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a.page-number {
+    margin: 10px;
+    font-weight: bolder;
 }

@@ -1,10 +1,13 @@
 export class Details{
+    id: number;
+    name: string;
     abilities: Abilities[];
     sprites: Sprites;
     stats: Stats[];
     types: Types[];
     height: number;
     weight: number;
+    is_default: boolean;
 }
 
 export class Abilities{

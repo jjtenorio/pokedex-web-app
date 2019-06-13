@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', component: PokelistComponent },
+  { path: 'page/:id', component: PokelistComponent },
   { path: ':name', component: PokedetailsComponent }
 ];
 

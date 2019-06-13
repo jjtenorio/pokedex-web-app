@@ -1,15 +1,18 @@
-<h3>List of Pokemon</h3> 
-
-<app-pager></app-pager>
-
+<h3>List of Pokemon</h3>
+<div class="pager">
+  <div *ngFor='let p of pager | slice: 1; let i = index' class="pagelist">
+    <a [routerLink]="['/page/',i+1]" class="page-number">{{i+1}}</a>
+  </div>
+</div>
 <ul *ngIf='poke$' class="table">
   <div *ngFor='let poke of poke$' class="container">
     <div *ngIf='poke.name'>
-    <a [routerLink]="['/',poke.name]">
-    <li class="pokename">{{poke.name}}</li>
-    <app-pokedisplay [pokename]='poke.name' class="pokedetails"></app-pokedisplay>
-    </a>
+      <a [routerLink]="['/',poke.name]">
+        <li class="pokename">{{poke.name}}</li>
+        <app-pokedisplay [pokename]='poke.name' class="pokedetails"></app-pokedisplay>
+      </a>
     </div>
   </div>
 </ul>
 
+<app-scroll-top></app-scroll-top>

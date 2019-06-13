@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagerComponent } from './pager.component';
+import { ScrollTopComponent } from './scroll-top.component';
 
-describe('PagerComponent', () => {
-  let component: PagerComponent;
-  let fixture: ComponentFixture<PagerComponent>;
+describe('ScrollTopComponent', () => {
+  let component: ScrollTopComponent;
+  let fixture: ComponentFixture<ScrollTopComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagerComponent ]
+      declarations: [ ScrollTopComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagerComponent);
+    fixture = TestBed.createComponent(ScrollTopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
