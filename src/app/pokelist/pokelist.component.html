@@ -1,6 +1,5 @@
-<h3>List of Pokemon</h3>
 <div class="pager">
-  <div *ngFor='let p of pager | slice: 1; let i = index' class="pagelist">
+  <div *ngFor='let p of pager; let i = index' class="pagelist">
     <a [routerLink]="['/page/',i+1]" class="page-number">{{i+1}}</a>
   </div>
 </div>

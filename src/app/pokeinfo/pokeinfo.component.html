@@ -1,0 +1,33 @@
+<div *ngIf='pokeImg' class="pokemon">
+    <img [src]="pokeImg.front_default">
+</div>
+
+<h3>{{pokename_default}}</h3>
+
+<div>
+<ul class="type">Types:
+    <div *ngFor='let types of pokeType' class="type">
+        <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
+    </div>
+</ul>
+</div>
+
+<div>
+<ul class="ab">Abilities:
+    <div *ngFor='let abi of pokeAbi'>
+        <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
+    </div>
+</ul>
+</div>
+
+<p>
+    Height: {{pokeHeight}}<br>
+    Weight: {{pokeWeight}}
+</p>
+
+
+<ul class="stats">Stats:
+<div *ngFor='let stats of pokeStat'>
+    <li *ngIf='pokeStat'>{{stats.stat.name}} - {{stats.base_stat}}</li>
+</div>
+</ul>

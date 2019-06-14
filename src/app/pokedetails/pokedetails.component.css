@@ -1,54 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-h3 {
-    text-transform: capitalize;
+* {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-ul {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-ul.type{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li.types {
+div#previous {
     float: left;
-    margin: 2px;
 }
 
-li {
-    font-family: 'Source Sans Pro', sans-serif;
+div#next {
+    float: right;
 }
 
-p {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-.poison{
-    background-color: purple;
-}
-
-.grass{
-    background-color: green;
-}
-
-.fire{
-    background-color: orangered;
-}
-
-.flying{
-    background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
-}
-
-ul.ab {
-    margin-top: 50px;
-    padding: 0;
-}
-
-ul.stats {
-    padding: 0;
+section {
+    padding: 20px;
 }

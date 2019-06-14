@@ -1,40 +1,17 @@
-<h2>Pokemon Details</h2>
 
-<div *ngIf='pokeImg' class="pokemon">
-    <img [src]="pokeImg.front_default">
+<div id="previous">
+    <a (click)="prevPoke()">PREVIOUS</a>
+</div>
+<div id="next">
+    <a (click)="nextPoke()">NEXT</a>
 </div>
 
-<h3>{{pokename}}</h3>
+<section></section>
+<app-pokeinfo [pokename]='pokename'></app-pokeinfo>
 
-<div>
-<ul class="type">Types:
-    <div *ngFor='let types of pokeType' class="type">
-        <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
-    </div>
-</ul>
-</div>
-
-<div>
-<ul class="ab">Abilities:
-    <div *ngFor='let abi of pokeAbi'>
-        <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
-    </div>
-</ul>
-</div>
-
-<p>
-    Height: {{pokeHeight}}<br>
-    Weight: {{pokeWeight}}
-</p>
-
-
-<ul class="stats">Stats:
-<div *ngFor='let stats of pokeStat'>
-    <li *ngIf='pokeStat'>{{stats.stat.name}} - {{stats.base_stat}}</li>
-</div>
-</ul>
 <app-poke-evolution *ngIf='pokeChain' 
 [evochain]='pokeChain.url'
 [pokename]='pokename'></app-poke-evolution>
+
 
 <button (click)="goBack()">Explore More Pokemon</button>

@@ -16,6 +16,7 @@ export class PokelistComponent implements OnInit {
   pager:number[];
   page: number;
   offset: number;
+  pokedefault: boolean;
 
   constructor(
     private data: DataService,
@@ -38,7 +39,10 @@ export class PokelistComponent implements OnInit {
     this.data.getPokemon(this.offset)
     .subscribe(data => {
       this.poke$ = data.results
-      this.count = Math.round(data.count/60)
+      this.count = Math.trunc((data.count/60))
+      if((data.count/60 % 1) > 0){
+        this.count = this.count + 1
+      }
       this.pager = new Array(this.count)
     });
   }

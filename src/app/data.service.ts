@@ -29,6 +29,10 @@ pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
     return this.http.get<Details>(this.pokeUrl+name);
   }
 
+  getPokeById(id: number):Observable<Details>{
+    return this.http.get<Details>(this.pokeUrl+id);
+  }
+
   getPokeItemImage():Observable<Items_Details>{
     return this.http.get<Items_Details>(this.pokeItemUrl);
   }

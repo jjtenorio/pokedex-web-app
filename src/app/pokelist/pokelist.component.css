@@ -40,10 +40,16 @@ div.pager {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 30px;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 a.page-number {
     margin: 10px;
     font-weight: bolder;
+    color: black;
+}
+
+.pagehl {
+    color: white;
 }

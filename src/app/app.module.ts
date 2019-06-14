@@ -11,6 +11,7 @@ import { PokedetailsComponent } from './pokedetails/pokedetails.component';
 import { PokeEvolutionComponent } from './poke-evolution/poke-evolution.component';
 import { PokeEvoDisplayComponent } from './poke-evo-display/poke-evo-display.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import { PokeinfoComponent } from './pokeinfo/pokeinfo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     PokeEvolutionComponent,
     PokeEvoDisplayComponent,
     ScrollTopComponent,
+    PokeinfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     HttpClientModule
   ],
   providers: [
-    DataService],
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
