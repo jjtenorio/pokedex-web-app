@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class PokelistComponent implements OnInit {
   poke$: Results[];
+  pokeAll: Results[];
   pokeId: number;
   default: boolean;
   count: number;
@@ -17,6 +18,7 @@ export class PokelistComponent implements OnInit {
   page: number;
   offset: number;
   pokedefault: boolean;
+  public default_count: number = 0;
 
   constructor(
     private data: DataService,
@@ -31,7 +33,28 @@ export class PokelistComponent implements OnInit {
       };
      }
 
-  ngOnInit() {
+   ngOnInit() {
+    this.data.getAllPokemon()
+    .subscribe(data => {
+        for (var i = 0; i < data.count-1; i++){
+        this.pokeAll = data.results
+          this.data.getPokeInfo(this.pokeAll[i].name)
+          .subscribe(data => {
+            this.default = data.is_default
+          if(this.default){
+            this.default_count = this.default_count + 1
+          }
+          if(this.default_count === 807){
+            this.count = Math.trunc((this.default_count/60))
+            if((this.default_count/60 % 1) > 0){
+             this.count = this.count + 1
+             }
+             this.pager = new Array(this.count)
+          }
+          })
+        }
+    })
+
     this.offset = (this.page-1) * 60;
     if(this.offset < 0) {
       this.offset = 0
@@ -39,11 +62,9 @@ export class PokelistComponent implements OnInit {
     this.data.getPokemon(this.offset)
     .subscribe(data => {
       this.poke$ = data.results
-      this.count = Math.trunc((data.count/60))
-      if((data.count/60 % 1) > 0){
-        this.count = this.count + 1
-      }
-      this.pager = new Array(this.count)
+      
     });
+    
   }
+
 }

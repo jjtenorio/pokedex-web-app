@@ -1,33 +1,36 @@
-<div *ngIf='pokeImg' class="pokemon">
-    <img [src]="pokeImg.front_default">
-</div>
+<h1>#{{pokeId}}</h1>
+<h2>{{pokename_default}}</h2>
 
-<h3>{{pokename_default}}</h3>
-
-<div>
-<ul class="type">Types:
-    <div *ngFor='let types of pokeType' class="type">
-        <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
+    <div class="column left">
+        <div *ngIf='pokeImg'>
+            <img [src]="pokeImg.front_default" class="pokemon-img">
+        </div>
+        <ul class="list-stats">
+            <p class="text-stats">Stats:</p>
+            <div *ngFor='let stats of pokeStat'>
+                <li class="item-stats-text">{{stats.stat.name}}</li>
+                <li class="item-stats-value">{{stats.base_stat}}</li>
+            </div>
+        </ul>
     </div>
-</ul>
-</div>
 
-<div>
-<ul class="ab">Abilities:
-    <div *ngFor='let abi of pokeAbi'>
-        <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
+    <div class="column right">
+        <p>
+            Height: {{pokeHeight}}<br>
+            Weight: {{pokeWeight}}
+        </p>
+        <div>
+            <ul class="type">Types:
+                <div *ngFor='let types of pokeType' class="type">
+                    <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <ul class="ab">Abilities:
+                <div *ngFor='let abi of pokeAbi'>
+                    <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
+                </div>
+            </ul>
+        </div>
     </div>
-</ul>
-</div>
-
-<p>
-    Height: {{pokeHeight}}<br>
-    Weight: {{pokeWeight}}
-</p>
-
-
-<ul class="stats">Stats:
-<div *ngFor='let stats of pokeStat'>
-    <li *ngIf='pokeStat'>{{stats.stat.name}} - {{stats.base_stat}}</li>
-</div>
-</ul>

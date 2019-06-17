@@ -11,22 +11,26 @@ import { ItemSprites } from '../pokeitem.model';
 export class PokedisplayComponent implements OnInit {
   pokeImg: Sprites;
   pokeType: Types[];
+  pokeName: string;
+  pokeId: number;
+  pokeDefault: boolean;
   itemImg: ItemSprites;
-  @Input('pokename') pokename: string;
+  @Input('name') name: string;
 
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    if(this.pokename){
-      this.data.getPokeInfo(this.pokename)
+    if(this.name){
+      this.data.getPokeInfo(this.name)
       .subscribe(data => {
-        this.pokeImg = data.sprites
-      });
-
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokeType = data.types
+        if(data.is_default){
+          this.pokeImg = data.sprites
+          this.pokeType = data.types
+          this.pokeName = data.name
+          this.pokeId = data.id
+          this.pokeDefault = data.is_default
+        }
       });
 
       this.data.getPokeItemImage()

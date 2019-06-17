@@ -1,17 +1,23 @@
-
-<div id="previous">
-    <a (click)="prevPoke()">PREVIOUS</a>
+<section class="navigation-section">
+<div id="previous" class="pokemon-navigation" (click)="prevPoke()">
+    PREVIOUS
 </div>
-<div id="next">
-    <a (click)="nextPoke()">NEXT</a>
+<div id="next" class="pokemon-navigation" (click)="nextPoke()">
+    NEXT
 </div>
+</section>
 
-<section></section>
+
+
+<section class="info-section">
 <app-pokeinfo [pokename]='pokename'></app-pokeinfo>
+</section>
 
+<section class="evolution-section">
 <app-poke-evolution *ngIf='pokeChain' 
 [evochain]='pokeChain.url'
 [pokename]='pokename'></app-poke-evolution>
+</section>
 
 
 <button (click)="goBack()">Explore More Pokemon</button>

@@ -2,16 +2,40 @@
 
 * {
     font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
+}
+
+div.pokemon-navigation {
+    background: white;
+    padding: 10px;
+    font-weight: bold;
+    width: 8%;
+    color: #AD4141;
+    text-align: center;
 }
 
 div#previous {
     float: left;
+    width: 40%;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 div#next {
     float: right;
+    width: 40%;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
 }
 
-section {
-    padding: 20px;
+section.navigation-section{
+    padding: 40px 0 40px 0;
+}
+
+section.info-section{
+    padding: 40px 0 0 0;
+    text-align: center;
+}
+
+section.forms-navigation-section{
 }

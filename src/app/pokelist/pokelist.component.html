@@ -4,13 +4,11 @@
   </div>
 </div>
 <ul *ngIf='poke$' class="table">
-  <div *ngFor='let poke of poke$' class="container">
-    <div *ngIf='poke.name'>
-      <a [routerLink]="['/',poke.name]">
-        <li class="pokename">{{poke.name}}</li>
-        <app-pokedisplay [pokename]='poke.name' class="pokedetails"></app-pokedisplay>
+  <div *ngFor='let poke of poke$'>
+      <a *ngIf='poke.name' [routerLink]="['/',poke.name]">
+        <!-- <li class="pokename">{{poke.name}}</li> -->
+        <app-pokedisplay [name]='poke.name' class="pokedetails"></app-pokedisplay>
       </a>
-    </div>
   </div>
 </ul>
 

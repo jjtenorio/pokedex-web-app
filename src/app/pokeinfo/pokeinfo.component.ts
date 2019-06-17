@@ -40,6 +40,7 @@ export class PokeinfoComponent implements OnInit {
     if(this.pokename){
       this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
+        this.pokeId = data.id
         this.pokeImg = data.sprites
         this.pokeAbi = data.abilities
         this.pokeType = data.types

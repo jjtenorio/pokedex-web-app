@@ -24,6 +24,10 @@ pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
   getPokemon(offset: number):Observable<Pokemon>{
     return this.http.get<Pokemon>(this.pokeUrlshow+offset+"&limit=60");
   }
+
+  getAllPokemon():Observable<Pokemon>{
+    return this.http.get<Pokemon>(this.pokeUrlshow+"00&limit=963");
+  }
   
   getPokeInfo(name: string):Observable<Details>{
     return this.http.get<Details>(this.pokeUrl+name);

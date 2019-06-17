@@ -1,13 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-h3 {
+h1, h2{
+    margin: 0;
     text-transform: capitalize;
-    font-family: 'Source Sans Pro', sans-serif;
 }
 
-ul {
-    font-family: 'Source Sans Pro', sans-serif;
+h1 {
+    font-size: 32px;
 }
+
+h2 {
+    margin-bottom: 5%;
+}
+
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+
+img.pokemon-img {
+    width: 100%;
+    background-color: #8C8C8C;
+    border-radius: 3%;
+}
+
+div.column {
+    float: left;
+    margin-right: -100%;
+    width: 30%;
+}
+
+div.left {
+    margin-left: 19%;
+}
+
+div.right {
+    background-color: white;
+    margin-left: 51%;
+}
+
+ul.list-stats {
+    background-color: #9E9E9E;
+    border-radius: 3%;
+    text-align: left;
+    padding: 5% 5% 5% 0;
+    text-transform: capitalize;
+}
+
+li.item-stats-text{
+    padding-left: 10%;
+    float: left;
+}
+
+li.item-stats-value {
+    padding-right: 5%;
+    text-align: right;
+}
+
+p.text-stats {
+    margin: -2% 0 5% 0;
+    padding-left: 5%;
+}
+
+
 
 ul.type{
     list-style-type: none;
@@ -18,14 +75,6 @@ ul.type{
 li.types {
     float: left;
     margin: 2px;
-}
-
-li {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-p {
-    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .poison{
@@ -44,11 +93,3 @@ p {
     background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
 }
 
-ul.ab {
-    margin-top: 50px;
-    padding: 0;
-}
-
-ul.stats {
-    padding: 0;
-}
