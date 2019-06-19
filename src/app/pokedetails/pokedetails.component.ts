@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Sprites, Stats, Types, Abilities } from '../pokemon-details.model';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Evolution, Evolution_Details } from '../pokeevolution.model';;
+import { Evolution, Species_Details } from '../pokeevolution.model';;
 
 @Component({
   selector: 'app-pokedetails',
@@ -12,6 +12,7 @@ import { Evolution, Evolution_Details } from '../pokeevolution.model';;
 export class PokedetailsComponent implements OnInit {
   pokename: string;
   pokeChain: Evolution;
+  pokeSpecieName: string;
   prevpokename: string;
   nextpokename: string;
   pokeId: number;
@@ -34,11 +35,12 @@ export class PokedetailsComponent implements OnInit {
       this.data.getPokeInfo(this.pokename)
       .subscribe(data => {
         this.pokeId = data.id
-      })
-      
-      this.data.getPokeSpecie(this.pokename)
-      .subscribe(data => {
-      this.pokeChain = data.evolution_chain
+        this.pokeSpecieName = data.species.name
+
+        this.data.getPokeSpecie(this.pokeSpecieName)
+        .subscribe(data => {
+        this.pokeChain = data.evolution_chain
+        })
       })
     }
   }

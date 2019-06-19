@@ -45,11 +45,8 @@ export class PokelistComponent implements OnInit {
             this.default_count = this.default_count + 1
           }
           if(this.default_count === 807){
-            this.count = Math.trunc((this.default_count/60))
-            if((this.default_count/60 % 1) > 0){
-             this.count = this.count + 1
-             }
-             this.pager = new Array(this.count)
+            this.count = Math.ceil(this.default_count/60)
+            this.pager = new Array(this.count)
           }
           })
         }

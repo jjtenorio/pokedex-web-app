@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { Evolution, Evolution_Details, Evolution_Chain, Chain, Evolves_To } from '../pokeevolution.model';
+import { Evolution, Species_Details, Evolution_Chain, Chain, Evolves_To } from '../pokeevolution.model';
 import { Sprites } from '../pokemon-details.model';
 
 @Component({
@@ -10,7 +10,10 @@ import { Sprites } from '../pokemon-details.model';
 })
 export class PokeEvolutionComponent implements OnInit {
   pokeEvo: Chain;
-
+  pokeEvo2: Evolves_To[];
+  pokeEvo3: Evolves_To[];
+  pokeDefName: string;
+  arr1: any [];
   @Input('evochain') evochain: string;
   @Input('pokename') pokename: string;
   evo_chain: string;
@@ -18,12 +21,20 @@ export class PokeEvolutionComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    
     this.evo_chain = this.evochain.substring(42,50);
+
+    this.data.getPokeInfo(this.pokename)
+    .subscribe(data => {
+      this.pokeDefName = data.name
+    })
 
     this.data.getPokeEvo(this.evo_chain)
     .subscribe(data => {
       this.pokeEvo = data.chain
+      this.pokeEvo2 = this.pokeEvo.evolves_to
+      this.pokeEvo3 = this.pokeEvo2[0].evolves_to
+      console.log(this.pokeEvo2)
+      console.log(this.pokeEvo3)
     })
   }
 

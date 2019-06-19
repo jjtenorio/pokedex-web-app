@@ -4,7 +4,7 @@ import { Pokemon, Results } from './pokemon.model';
 import { Details, Types } from './pokemon-details.model';
 import { Observable } from 'rxjs';
 import { Items_Details } from './pokeitem.model';
-import { Evolution_Details, Evolution_Chain } from './pokeevolution.model';
+import { Species_Details, Evolution_Chain } from './pokeevolution.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +41,8 @@ pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
     return this.http.get<Items_Details>(this.pokeItemUrl);
   }
 
-  getPokeSpecie(name: string):Observable<Evolution_Details>{
-    return this.http.get<Evolution_Details>(this.pokeSpeciesUrl+name);
+  getPokeSpecie(name: string):Observable<Species_Details>{
+    return this.http.get<Species_Details>(this.pokeSpeciesUrl+name);
   }
 
   getPokeEvo(chain: string):Observable<Evolution_Chain>{

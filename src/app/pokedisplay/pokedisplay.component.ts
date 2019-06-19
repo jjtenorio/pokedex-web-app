@@ -14,6 +14,7 @@ export class PokedisplayComponent implements OnInit {
   pokeName: string;
   pokeId: number;
   pokeDefault: boolean;
+  pokeSpecieName: string;
   itemImg: ItemSprites;
   @Input('name') name: string;
 
@@ -30,6 +31,7 @@ export class PokedisplayComponent implements OnInit {
           this.pokeName = data.name
           this.pokeId = data.id
           this.pokeDefault = data.is_default
+          this.pokeSpecieName = data.species.name
         }
       });
 

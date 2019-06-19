@@ -6,7 +6,6 @@
 <ul *ngIf='poke$' class="table">
   <div *ngFor='let poke of poke$'>
       <a *ngIf='poke.name' [routerLink]="['/',poke.name]">
-        <!-- <li class="pokename">{{poke.name}}</li> -->
         <app-pokedisplay [name]='poke.name' class="pokedetails"></app-pokedisplay>
       </a>
   </div>

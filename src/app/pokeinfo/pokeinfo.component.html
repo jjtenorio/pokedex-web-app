@@ -1,36 +1,41 @@
 <h1>#{{pokeId}}</h1>
-<h2>{{pokename_default}}</h2>
+<h2>{{pokeSpecieName}}</h2>
 
-    <div class="column left">
-        <div *ngIf='pokeImg'>
-            <img [src]="pokeImg.front_default" class="pokemon-img">
+<div class="column left">
+    <div *ngIf='pokeImg'>
+        <img [src]="pokeImg.front_default" class="pokemon-img">
+    </div>
+    <ul class="list-stats">
+        <p class="text-stats">Stats:</p>
+        <div *ngFor='let stats of pokeStat'>
+            <li class="item-stats-text">{{stats.stat.name}}</li>
+            <li class="item-stats-value">{{stats.base_stat}}</li>
         </div>
-        <ul class="list-stats">
-            <p class="text-stats">Stats:</p>
-            <div *ngFor='let stats of pokeStat'>
-                <li class="item-stats-text">{{stats.stat.name}}</li>
-                <li class="item-stats-value">{{stats.base_stat}}</li>
+    </ul>
+</div>
+
+<div class="column right">
+    <div *ngFor="let pokeflavor of pokeFlavorTextEnt | slice:0:5; let first: first">
+        <p *ngIf="pokeflavor.language.name === 'en' && first">
+            {{pokeflavor.flavor_text}}
+        </p>
+    </div>
+    <p>
+        Height: {{pokeHeight}}<br>
+        Weight: {{pokeWeight}}
+    </p>
+    <div>
+        <ul class="ab">Abilities:
+            <div *ngFor='let abi of pokeAbi'>
+                <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
             </div>
         </ul>
     </div>
-
-    <div class="column right">
-        <p>
-            Height: {{pokeHeight}}<br>
-            Weight: {{pokeWeight}}
-        </p>
-        <div>
-            <ul class="type">Types:
-                <div *ngFor='let types of pokeType' class="type">
-                    <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
-                </div>
-            </ul>
-        </div>
-        <div>
-            <ul class="ab">Abilities:
-                <div *ngFor='let abi of pokeAbi'>
-                    <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
-                </div>
-            </ul>
-        </div>
+    <div>
+        <ul class="type">Types:
+            <div *ngFor='let types of pokeType' class="type">
+                <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
+            </div>
+        </ul>
     </div>
+</div>

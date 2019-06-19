@@ -1,5 +1,44 @@
-div {
-    color: blue;
+ul.evolution-list{
+    width: 57%;
+    background-color: #8C8C8C;
+    float: left;
+    margin-left: 19%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 2%;
+    list-style-type: none;
+    border-radius: 2%;
+}
+
+ul.evolution-list-child {
+    float: left;
+    padding: 0;
+    margin: 0 5% 0 5%;
+    list-style-type: none;
+    vertical-align: baseline;
+}
+
+li.evo {
+    float: left;
+    position: relative;
+}
+
+li.first {
+    margin-left: 0;
+}
+
+li.middle {
+    margin-left: 3%;
+    width: 50%;
+}
+
+li.last {
+    margin-left: 3%;
+    width: 25%;
+}
+
+li.poke-container {
+    float: left;
 }
 
 .highlight {

@@ -5,6 +5,10 @@ h1, h2{
     text-transform: capitalize;
 }
 
+p {
+    margin-top: 0;
+}
+
 h1 {
     font-size: 32px;
 }
@@ -30,6 +34,7 @@ div.column {
     float: left;
     margin-right: -100%;
     width: 30%;
+    text-align: left;
 }
 
 div.left {
@@ -37,8 +42,8 @@ div.left {
 }
 
 div.right {
-    background-color: white;
     margin-left: 51%;
+    background-color: wheat;
 }
 
 ul.list-stats {

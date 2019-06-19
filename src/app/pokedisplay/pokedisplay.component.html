@@ -1,6 +1,6 @@
 <div class="container" *ngIf="pokeDefault">
 <div *ngIf='pokeImg' class="pokemon">
-    <p class="pokename">#{{pokeId}} {{pokeName}}</p>
+    <p class="pokename">#{{pokeId}} {{pokeSpecieName}}</p>
     <div class="img-container">
     <div *ngIf='pokeImg.front_default'>
         <img [src]='pokeImg.front_default' class="front">

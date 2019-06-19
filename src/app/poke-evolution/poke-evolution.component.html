@@ -1,22 +1,23 @@
-<div *ngIf='pokeEvo' 
-      [ngClass]="{'highlight': pokeEvo.species.name===pokename}">
-  {{pokeEvo.species.name}}
-  <!-- <a [href]="'/' + pokeEvo.species.name"> -->
-  <a [routerLink]="['/',pokeEvo.species.name]">
-  <app-poke-evo-display [pokename]='pokeEvo.species.name' class="pokedetails"></app-poke-evo-display>
-  </a>
-      <div *ngFor='let chain1 of pokeEvo.evolves_to'
-           [ngClass]="{'highlight': chain1.species.name===pokename}">
-          {{chain1.species.name}}
-          <a [routerLink]="['/',chain1.species.name]">
-          <app-poke-evo-display [pokename]='chain1.species.name' class="pokedetails"></app-poke-evo-display>
-          </a>
-              <div *ngFor="let chain2 of chain1.evolves_to"
-                   [ngClass]="{'highlight': chain2.species.name===pokename}">
-                  {{chain2.species.name}}
-                  <a [routerLink]="['/',chain2.species.name]">
-                  <app-poke-evo-display [pokename]='chain2.species.name' class="pokedetails"></app-poke-evo-display>
-                  </a>
-             </div>
-      </div>
-</div>
+<ul *ngIf="pokeEvo" class="evolution-list">
+    <li class="evo first">
+        <ul class="evolution-list-child">
+            <li [routerLink]="['/',pokeEvo.species.name]" class="poke-container">{{pokeEvo.species.name}}
+            <app-poke-evo-display [pokename]='[pokeEvo.species.name]'></app-poke-evo-display>
+            </li>
+        </ul>
+    </li>
+    <li class="evo middle">
+        <ul class="evolution-list-child">
+            <li *ngFor="let evo1 of pokeEvo.evolves_to" [routerLink]="['/',evo1.species.name]" class="poke-container">{{evo1.species.name}}
+            <app-poke-evo-display [pokename]='[evo1.species.name]'></app-poke-evo-display>
+            </li>
+        </ul>
+    </li>
+    <li class="evo last">
+        <ul class="evolution-list-child">
+            <li *ngFor="let evo2 of pokeEvo3" [routerLink]="['/',evo2.species.name]" class="poke-container">{{evo2.species.name}}
+                <app-poke-evo-display [pokename]='[evo2.species.name]'></app-poke-evo-display>
+            </li>
+        </ul>
+    </li>
+</ul>

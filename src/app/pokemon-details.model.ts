@@ -8,6 +8,7 @@ export class Details{
     height: number;
     weight: number;
     is_default: boolean;
+    species: Species;
 }
 
 export class Abilities{
@@ -17,6 +18,11 @@ export class Abilities{
 }
 
 export class Ability{
+    name: string;
+    url: string;
+}
+
+export class Species{
     name: string;
     url: string;
 }

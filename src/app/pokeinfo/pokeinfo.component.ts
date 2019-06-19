@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Abilities, Sprites, Types, Stats } from '../pokemon-details.model';
-import { Evolution } from '../pokeevolution.model';
+import { Evolution, Flavor_Text_Entries } from '../pokeevolution.model';
 
 @Component({
   selector: 'app-pokeinfo',
@@ -15,10 +15,11 @@ export class PokeinfoComponent implements OnInit {
   pokeStat: Stats[];
   pokeType: Types[];
   pokeChain: Evolution;
+  pokeFlavorTextEnt: Flavor_Text_Entries[];
+  pokeSpecieName: string;
   pokeId: number;
   pokeHeight: number;
   pokeWeight: number;
-  order: string;
   pokename_default: string;
   @Input('pokename') pokename: string;
 
@@ -44,19 +45,20 @@ export class PokeinfoComponent implements OnInit {
         this.pokeImg = data.sprites
         this.pokeAbi = data.abilities
         this.pokeType = data.types
-        this.pokeStat = data.stats.sort((a, b) => (a.stat.name > a.stat.name)? 1: -1);
+        this.pokeStat = data.stats.reverse()
         this.pokeHeight = data.height
         this.pokeWeight = data.weight
-      });
-      this.data.getPokeInfo(this.pokename)
-      .subscribe(data => {
-        this.pokename_default = data.name});
-      }
+        this.pokeSpecieName = data.species.name
 
-      this.data.getPokeSpecie(this.pokename)
-      .subscribe(data => {
-      this.pokeChain = data.evolution_chain
-      })
+        this.data.getPokeSpecie(this.pokeSpecieName)
+        .subscribe(data => {
+        this.pokeChain = data.evolution_chain
+        this.pokeFlavorTextEnt = data.flavor_text_entries
+        })
+
+
+      });
+      }
   }
 
 }
