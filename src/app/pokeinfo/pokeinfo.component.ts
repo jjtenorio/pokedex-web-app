@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Abilities, Sprites, Types, Stats } from '../pokemon-details.model';
-import { Evolution, Flavor_Text_Entries } from '../pokeevolution.model';
+import { Evolution, Flavor_Text_Entries, Varieties } from '../pokeevolution.model';
 
 @Component({
   selector: 'app-pokeinfo',
@@ -17,11 +17,14 @@ export class PokeinfoComponent implements OnInit {
   pokeChain: Evolution;
   pokeFlavorTextEnt: Flavor_Text_Entries[];
   pokeSpecieName: string;
+  pokeDefName: string;
   pokeId: number;
-  pokeHeight: number;
+  pokeHeight1: number;
+  pokeHeight2: string;
   pokeWeight: number;
   pokename_default: string;
   @Input('pokename') pokename: string;
+  pokeVariety: Varieties[];
 
   constructor(
     private data: DataService,
@@ -39,25 +42,39 @@ export class PokeinfoComponent implements OnInit {
 
   ngOnInit() {
     if(this.pokename){
-      this.data.getPokeInfo(this.pokename)
+      this.data.getPokeSpecie(this.pokename)
       .subscribe(data => {
-        this.pokeId = data.id
-        this.pokeImg = data.sprites
-        this.pokeAbi = data.abilities
-        this.pokeType = data.types
-        this.pokeStat = data.stats.reverse()
-        this.pokeHeight = data.height
-        this.pokeWeight = data.weight
-        this.pokeSpecieName = data.species.name
+        this.pokeVariety = data.varieties
 
-        this.data.getPokeSpecie(this.pokeSpecieName)
-        .subscribe(data => {
-        this.pokeChain = data.evolution_chain
-        this.pokeFlavorTextEnt = data.flavor_text_entries
-        })
+        for(var i=0; i<this.pokeVariety.length; i++){
+          if(this.pokeVariety[i].is_default){
+            this.data.getPokeInfo(this.pokeVariety[i].pokemon.name)
+            .subscribe(data => {
+              this.pokeDefName = data.name
 
+              this.data.getPokeInfo(this.pokeDefName)
+              .subscribe(data => {
+                this.pokeId = data.id
+                this.pokeImg = data.sprites
+                this.pokeAbi = data.abilities
+                this.pokeType = data.types
+                this.pokeStat = data.stats.reverse()
+                this.pokeHeight1 = Math.trunc((data.height*3.93701)/12)
+                this.pokeHeight2 = Math.round((data.height*3.93701)%12).toFixed().replace('','0')
+                
+                this.pokeWeight = +(data.weight*0.220462).toFixed(1)
+                this.pokeSpecieName = data.species.name
 
-      });
+                this.data.getPokeSpecie(this.pokeSpecieName)
+                .subscribe(data => {
+                this.pokeChain = data.evolution_chain
+                this.pokeFlavorTextEnt = data.flavor_text_entries
+                })
+              });
+            });
+          }
+        }
+      })
       }
   }
 

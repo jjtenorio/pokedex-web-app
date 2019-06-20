@@ -17,11 +17,13 @@ export class PokedisplayComponent implements OnInit {
   pokeSpecieName: string;
   itemImg: ItemSprites;
   @Input('name') name: string;
+  @Input('list') list: string;
 
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    console.log(this.list);
     if(this.name){
       this.data.getPokeInfo(this.name)
       .subscribe(data => {

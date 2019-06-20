@@ -23,18 +23,12 @@ export class PokeEvolutionComponent implements OnInit {
   ngOnInit() {
     this.evo_chain = this.evochain.substring(42,50);
 
-    this.data.getPokeInfo(this.pokename)
-    .subscribe(data => {
-      this.pokeDefName = data.name
-    })
-
+    
     this.data.getPokeEvo(this.evo_chain)
     .subscribe(data => {
       this.pokeEvo = data.chain
       this.pokeEvo2 = this.pokeEvo.evolves_to
       this.pokeEvo3 = this.pokeEvo2[0].evolves_to
-      console.log(this.pokeEvo2)
-      console.log(this.pokeEvo3)
     })
   }
 

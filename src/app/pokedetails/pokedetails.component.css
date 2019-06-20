@@ -12,6 +12,7 @@ div.pokemon-navigation {
     width: 8%;
     color: #AD4141;
     text-align: center;
+    text-transform: capitalize;
 }
 
 div#previous {

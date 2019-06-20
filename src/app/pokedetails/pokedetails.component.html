@@ -1,17 +1,16 @@
 <section class="navigation-section">
-<div id="previous" class="pokemon-navigation" (click)="prevPoke()">
-    PREVIOUS
+<div id="previous" class="pokemon-navigation" (click)="prevPoke()" *ngIf="pokeId > 1">
+    {{pokePrevName}}
 </div>
 <div id="next" class="pokemon-navigation" (click)="nextPoke()">
-    NEXT
+    {{pokeNextName}}
 </div>
 </section>
 
 
 
 <section class="info-section">
-<app-pokeinfo
-[pokename]='pokename'></app-pokeinfo>
+<app-pokeinfo [pokename]='pokename'></app-pokeinfo>
 </section>
 
 <section class="evolution-section">

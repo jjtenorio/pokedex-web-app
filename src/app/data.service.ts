@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pokemon, Results } from './pokemon.model';
 import { Details, Types } from './pokemon-details.model';
-import { Observable } from 'rxjs';
+import { Observable, of, pipe } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Items_Details } from './pokeitem.model';
 import { Species_Details, Evolution_Chain } from './pokeevolution.model';
 
@@ -17,9 +18,11 @@ pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 pokeSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
 pokeChainUrl = 'https://pokeapi.co/api/v2/evolution-chain/';
 
-  constructor(
-    private http:HttpClient
-    ) { }
+private log(message: string) {
+  
+}
+
+  constructor(private http:HttpClient) { }
 
   getPokemon(offset: number):Observable<Pokemon>{
     return this.http.get<Pokemon>(this.pokeUrlshow+offset+"&limit=60");

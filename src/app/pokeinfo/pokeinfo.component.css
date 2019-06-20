@@ -17,6 +17,10 @@ h2 {
     margin-bottom: 5%;
 }
 
+h4 {
+    margin-bottom: 0;
+}
+
 
 ul{
     list-style-type: none;
@@ -35,6 +39,7 @@ div.column {
     margin-right: -100%;
     width: 30%;
     text-align: left;
+    margin-bottom: 2%;
 }
 
 div.left {
@@ -42,16 +47,21 @@ div.left {
 }
 
 div.right {
-    margin-left: 51%;
-    background-color: wheat;
+    margin-left: 50%;
+    background-color: #8C8C8C;
+    border-radius: 3%;
+    padding: 1%;
+    font-size: 120%;
 }
 
 ul.list-stats {
-    background-color: #9E9E9E;
+    background-color: #8C8C8C;
     border-radius: 3%;
     text-align: left;
     padding: 5% 5% 5% 0;
     text-transform: capitalize;
+    margin-top: 5%;
+    margin-bottom: 0;
 }
 
 li.item-stats-text{
@@ -64,12 +74,20 @@ li.item-stats-value {
     text-align: right;
 }
 
+ul.abilities {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+ul.types{
+    margin: 0;
+    text-transform: capitalize;
+}
+
 p.text-stats {
     margin: -2% 0 5% 0;
     padding-left: 5%;
 }
-
-
 
 ul.type{
     list-style-type: none;
@@ -77,24 +95,89 @@ ul.type{
     padding: 0;
 }
 
-li.types {
-    float: left;
-    margin: 2px;
+li.type {
+    padding: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
+    width: 25%;
+    float: left; 
+    border-radius: 10%;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: bolder;
+    color: white;
 }
 
-.poison{
+
+/* Pokemon Types Styles */
+#poison{
     background-color: purple;
 }
 
-.grass{
+#grass{
     background-color: green;
 }
 
-.fire{
+#fire{
     background-color: orangered;
 }
 
-.flying{
+#flying{
     background: -webkit-linear-gradient(bottom, grey, grey 50%, skyblue 50%, skyblue);
 }
 
+#water{
+    background-color:#4592C4;
+}
+
+#bug{
+    background-color:#729F3F;
+}
+
+#dragon{
+    background: -webkit-linear-gradient(bottom, #53A4CF, #53A4CF 50%, #F16E57 50%, #F16E57);
+}
+
+#fairy{
+    background-color:#FDB9E9;
+}
+
+#ghost{
+    background-color:#7B62A3;
+}
+
+#normal{
+    background-color:#A4ACAF;
+}
+
+#dark{
+    background-color:#707070;
+}
+
+#psychic{
+    background-color:#F366B9;
+}
+
+#steel{
+    background-color:#9EB7B8;
+}
+
+#electric{
+    background-color:#EED535;
+}
+
+#fighting{
+    background-color:#D56723;
+}
+
+#ice{
+    background-color:#51C4E7;
+}
+
+#rock{
+    background-color:#A38C21;
+}
+
+#ground{
+    background: -webkit-linear-gradient(bottom, #F7DE3F, #F7DE3F 50%, #AB9842 50%, #AB9842);
+}

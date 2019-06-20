@@ -20,22 +20,23 @@
             {{pokeflavor.flavor_text}}
         </p>
     </div>
-    <p>
-        Height: {{pokeHeight}}<br>
-        Weight: {{pokeWeight}}
-    </p>
-    <div>
-        <ul class="ab">Abilities:
-            <div *ngFor='let abi of pokeAbi'>
-                <li *ngIf='!abi.is_hidden'>{{abi.ability.name}}</li>
-            </div>
-        </ul>
-    </div>
-    <div>
-        <ul class="type">Types:
-            <div *ngFor='let types of pokeType' class="type">
-                <li *ngIf='pokeType' class="types">{{types.type.name}}</li>
-            </div>
-        </ul>
-    </div>
+    <h4>Height:</h4>
+    {{pokeHeight1}}'{{pokeHeight2}}"
+
+    <h4>Weight:</h4>
+    {{pokeWeight}} lbs
+
+    <h4>Abilities:</h4>
+    <ul class="abilities">
+        <div *ngFor='let abi of pokeAbi'>
+            <li *ngIf='!abi.is_hidden' class="ability">{{abi.ability.name}}</li>
+        </div>
+    </ul>
+
+    <h4>Types:</h4>
+    <ul class="types">
+        <div *ngFor='let types of pokeType'>
+            <li *ngIf='pokeType' id="{{types.type.name}}" class="type">{{types.type.name}}</li>
+        </div>
+    </ul>
 </div>
