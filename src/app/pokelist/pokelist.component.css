@@ -4,6 +4,30 @@
     box-sizing: border-box;
 } */
 
+cdk-virtual-scroll-viewport {
+    height: 85%;
+}
+
+#scroll1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#scroll1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#scroll1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+
 ul.table {
     list-style-type: none;
 }
@@ -40,7 +64,8 @@ div.pager {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 1%;
+    margin-bottom: 1%;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -48,6 +73,7 @@ a.page-number {
     margin: 10px;
     font-weight: bolder;
     color: black;
+    cursor: pointer;
 }
 
 .pagehl {

@@ -6,6 +6,7 @@ import { Observable, of, pipe } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Items_Details } from './pokeitem.model';
 import { Species_Details, Evolution_Chain } from './pokeevolution.model';
+import { PokemonByType } from './pokemonbytype.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { Species_Details, Evolution_Chain } from './pokeevolution.model';
 export class DataService {
 pokeNextUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=';
 pokeUrlshow = 'https://pokeapi.co/api/v2/pokemon?offset=';
+pokeUrlfilter= 'https://pokeapi.co/api/v2/type/';
 pokeItemUrl = 'https://pokeapi.co/api/v2/item/1';
 pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 pokeSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
@@ -30,6 +32,14 @@ private log(message: string) {
 
   getAllPokemon():Observable<Pokemon>{
     return this.http.get<Pokemon>(this.pokeUrlshow+"00&limit=963");
+  }
+
+  getPokemonTypes():Observable<Pokemon>{
+    return this.http.get<Pokemon>(this.pokeUrlfilter)
+  }
+
+  getPokemonByFilter(type: string):Observable<PokemonByType>{
+    return this.http.get<PokemonByType>(this.pokeUrlfilter+type);
   }
   
   getPokeInfo(name: string):Observable<Details>{

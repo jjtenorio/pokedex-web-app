@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Abilities, Sprites, Types, Stats } from '../pokemon-details.model';
 import { Evolution, Flavor_Text_Entries, Varieties } from '../pokeevolution.model';
+import { ItemSprites } from '../pokeitem.model';
 
 @Component({
   selector: 'app-pokeinfo',
@@ -25,6 +26,7 @@ export class PokeinfoComponent implements OnInit {
   pokename_default: string;
   @Input('pokename') pokename: string;
   pokeVariety: Varieties[];
+  itemImg: ItemSprites;
 
   constructor(
     private data: DataService,
@@ -42,6 +44,12 @@ export class PokeinfoComponent implements OnInit {
 
   ngOnInit() {
     if(this.pokename){
+
+      this.data.getPokeItemImage()
+      .subscribe(data => {
+      this.itemImg = data.sprites
+      });
+
       this.data.getPokeSpecie(this.pokename)
       .subscribe(data => {
         this.pokeVariety = data.varieties

@@ -1,9 +1,7 @@
-<!-- <div *ngIf='pokeAll'>
-  <div *ngFor='let poke of pokeAll'>
-    <a *ngIf='poke.name' [routerLink]="['/',poke.name]">
-      <app-pokedisplay [name]='poke.name'
-                       [list]="filter" class="pokedetails"></app-pokedisplay>
-    </a>
+<div class="pager">
+  <div *ngFor='let t of pokeTypes; let i: index' class="typelist">
+    <a class="type" (click)="setRow(i);goToType(t.name)"
+    [ngClass]="{'current':selectedIndex === i}">{{t.name}}</a>
   </div>
 </div>
-<app-scroll-top></app-scroll-top> -->
+<app-pokefilterlist></app-pokefilterlist>

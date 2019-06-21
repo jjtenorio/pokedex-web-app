@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PokemonsService } from '../pokemons.service';
 import { PokemonArr } from '../pokemonbytype.model';
 import { Results } from '../pokemon.model';
-import { PokefilterlistComponent } from '../pokefilterlist/pokefilterlist.component';
+import { DataService } from '../data.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { PokemonsService } from '../pokemons.service';
 
 @Component({
-  selector: 'app-pokefilter',
-  templateUrl: './pokefilter.component.html',
-  styleUrls: ['./pokefilter.component.css']
+  selector: 'app-pokefilterlist',
+  templateUrl: './pokefilterlist.component.html',
+  styleUrls: ['./pokefilterlist.component.css']
 })
-export class PokefilterComponent implements OnInit {
+export class PokefilterlistComponent implements OnInit {
   pokeAllbyType: PokemonArr[];
   pokeAll: Results[];
   pokeTypes: Results[];
@@ -24,7 +23,7 @@ export class PokefilterComponent implements OnInit {
   pokedefault: boolean;
   selectedIndex: number;
   public default_count: number = 0;
-
+  mySubscription: any;
 
   constructor(
     private data: DataService,
@@ -34,26 +33,17 @@ export class PokefilterComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.type = params.get("type")
     })
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
    }
-
+   
   ngOnInit() {
-    this.data.getPokemonTypes()
-    .subscribe(data => {
-      this.pokeTypes = data.results
-    })
-  }
-
-  setRow(_index: number) {
-    this.selectedIndex = _index;
-  }
-
-  goToType(ty: string){
-    this.data.getPokemonByFilter(ty)
+    this.data.getPokemonByFilter(this.type)
     .subscribe(data => {  
-      this.router.navigate(['/filter/',ty]);
+      console.log(data.pokemon)
+      this.pokeAllbyType = data.pokemon
     })
   }
-
-
-
 }

@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
+* {
+    outline: none;
+}
+
 h1 {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     color: white;
     padding: 5px;
-    /* position: fixed; */
+    cursor: pointer;
 }
 
 div.container {

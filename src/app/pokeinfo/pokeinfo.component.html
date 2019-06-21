@@ -3,7 +3,14 @@
 
 <div class="column left">
     <div *ngIf='pokeImg'>
-        <img [src]="pokeImg.front_default" class="pokemon-img">
+        <div *ngIf='pokeImg.front_default'>
+            <img [src]='pokeImg.front_default' class="front">
+        </div>
+        <div *ngIf='!pokeImg.front_default'>
+            <div *ngIf='itemImg' class="null-container">
+                <img [src]='itemImg.default' class="front-null">
+            </div>
+        </div>
     </div>
     <ul class="list-stats">
         <p class="text-stats">Stats:</p>

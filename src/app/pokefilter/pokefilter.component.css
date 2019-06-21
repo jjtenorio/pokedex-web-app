@@ -1,0 +1,23 @@
+
+
+div.pager {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+div.typelist {
+    flex-direction: row;
+    text-transform: capitalize;
+}
+
+a.type {
+    padding-left: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.current {
+    color: white;
+}

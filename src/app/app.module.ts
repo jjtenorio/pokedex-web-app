@@ -16,8 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PokemenuComponent } from './pokemenu/pokemenu.component';
 import { PokefilterComponent } from './pokefilter/pokefilter.component';
-import { ScrollingModule } from '@angular/cdk/scrolling'
+import { ScrollDispatchModule, ScrollingModule } from '@angular/cdk/scrolling';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PokefilterlistComponent } from './pokefilterlist/pokefilterlist.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ScrollTopComponent,
     PokeinfoComponent,
     PokemenuComponent,
-    PokefilterComponent
+    PokefilterComponent,
+    PokefilterlistComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     HttpModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
+    ScrollDispatchModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DataService

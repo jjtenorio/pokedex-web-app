@@ -1,0 +1,25 @@
+cdk-virtual-scroll-viewport {
+    height: 85%;
+}
+
+#scroll1::-webkit-scrollbar-track
+{
+	background-color: #c4c4c4;
+}
+
+#scroll1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#scroll1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #D62929;
+}
+
+div.pokemon{
+	text-align: center;
+	margin-left: 3%;
+}

@@ -3,12 +3,13 @@
     <a [routerLink]="['/page/',i+1]" class="page-number">{{i+1}}</a>
   </div>
 </div>
-<ul *ngIf='poke$' class="table">
-  <div *ngFor='let poke of poke$'>
+
+<cdk-virtual-scroll-viewport itemSize="20" id="scroll1">
+  <ul *ngIf='poke$' class="table">
+    <div *ngFor='let poke of poke$'>
       <a *ngIf='poke.name' [routerLink]="['/',poke.name]">
         <app-pokedisplay [name]='poke.name' class="pokedetails"></app-pokedisplay>
       </a>
-  </div>
-</ul>
-
-<app-scroll-top></app-scroll-top>
+    </div>
+  </ul>
+</cdk-virtual-scroll-viewport>

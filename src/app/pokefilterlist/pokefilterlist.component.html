@@ -1,0 +1,9 @@
+<cdk-virtual-scroll-viewport itemSize="20" id="scroll1">
+  <div *ngIf='pokeAllbyType'>
+    <div *ngFor='let poke of pokeAllbyType' class="pokemon">
+      <a *ngIf='poke.pokemon.name' [routerLink]="['/',poke.pokemon.name]">
+        <app-pokedisplay [name]='poke.pokemon.name' class="pokedetails"></app-pokedisplay>
+      </a>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

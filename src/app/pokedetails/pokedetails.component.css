@@ -37,9 +37,6 @@ section.info-section{
     text-align: center;
 }
 
-/* section.evolution-section{
-    
-} */
-
-/* section.forms-navigation-section{
-} */
+section.evolution-section{
+    margin-top: -10px;
+}
